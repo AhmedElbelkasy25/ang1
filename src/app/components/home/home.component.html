@@ -1,0 +1,21 @@
+<h1>{{ storeInfo.name }}</h1>
+<h2>this is a random image</h2>
+<!-- <img [src]="storeInfo.imgurl" alt="this random img" /> -->
+<img
+  *ngIf="isImgShown"
+  src="{{ storeInfo.imgurl }}"
+  alt="this random img"
+  class="img-fluid m-1"
+/>
+<img id="img2" src="{{ storeInfo.imgurl }}" alt="this random img2" />
+
+<button class="btn btn-outline-success" (click)="toggleImg()">
+  toggle Image
+</button>
+
+<ul>
+  <li *ngFor="let branch of storeInfo.branches">{{ branch }}</li>
+</ul>
+<!-- <select>
+  <option *ngFor="let item of storeInfo.branches">{{ item }}</option>
+</select> -->

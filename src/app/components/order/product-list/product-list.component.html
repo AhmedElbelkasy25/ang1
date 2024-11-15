@@ -1,0 +1,123 @@
+<div>
+  <!-- <div class="mb-3">
+    <label for="" class="form-label">select</label> -->
+  <!-- <select class="form-select form-select-lg" [(ngModel)]="selectedCatList">
+      <option *ngFor="let cat of catList" [value]="cat.id">
+        {{ cat.name }}
+      </option>
+    </select> -->
+  <!-- <select
+      class="form-select form-select-lg"
+      [(ngModel)]="selectedCatList"
+      (change)="filterProductsByCatId()"
+    >
+      <option *ngFor="let cat of catList" [value]="cat.id">
+        {{ cat.name }}
+      </option>
+    </select> -->
+  <!-- <div>
+      <input [(ngModel)]="selectedCatList" type="number" />
+      <h3>test: {{ selectedCatList }}</h3>
+    </div> -->
+  <!-- </div> -->
+</div>
+<div class="table-responsive">
+  <table class="table table-light text-justify">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Name</th>
+        <th scope="col">cat.Name</th>
+        <th scope="col">Price</th>
+        <th scope="col">Price By Egyption</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">Img</th>
+        <th scope="col">input</th>
+        <th scope="col">button</th>
+        <th scope="col">details</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- <tr
+        *ngFor="let prd of prdlist"
+        [class.table-secondary]="prd.quantity <= 5"
+      > -->
+      <!-- <tr
+        *ngFor="let prd of prdlist"
+        [class.d-none]="prd.categoryId != selectedCatList"
+      > -->
+      <!-- عملت فيلتر بال كات اي دي علشان افلتر كل منتج لوحده -->
+      <!-- <tr
+        *ngFor="let prd of prdlist; let i = index"
+        [hidden]="prd.quantity == 1"
+      > -->
+      <!-- <tr
+        *ngFor="let prd of prdlist; let i = index"
+        [style.backgroundColor]="prd.categoryId == 1 ? 'red' : 'green'"
+      > -->
+
+      <!-- <tr *ngFor="let prd of prdlist; let i = index"> -->
+      <tr *ngFor="let prd of prdlist; let i = index">
+        <!-- <td [style.backgroundColor]="prd.quantity >= 4 ? 'red' : 'green'"> -->
+        <td>
+          {{ prd.id }}
+        </td>
+        <td>{{ prd.name }}</td>
+        <!-- <td Lightbox highLightColor ="red"> -->
+        <!-- <td Lightbox="red" defaultColor="orange"> -->
+        <td>{{ prd.categoryName }}</td>
+        <td>
+          {{ prd.price | currency : "USD " }}
+        </td>
+
+        <td>
+          {{ prd.price | USDToEGP : 50 | currency : "EGP " : "code" }}
+        </td>
+        <!-- <td [class.bg-warning]="prd.quantity >= 5">{{ prd.quantity }}</td> -->
+        <td>{{ prd.quantity }}</td>
+        <td>
+          <!-- <img Lightbox highLightColor="red" [src]="prd.imgUrl" alt="this is img" /> -->
+          <img Lightbox="red" [src]="prd.imgUrl" alt="this is img" />
+        </td>
+
+        <td><input #itemscount type="number" /></td>
+        <td>
+          <button
+            type="button"
+            class="btn btn-primary"
+            (click)="
+              buy(
+                prd.name,
+                prd.categoryName,
+                prd.price,
+                itemscount.value,
+                prd.id
+              )
+            "
+          >
+            Buy
+          </button>
+        </td>
+        <td>
+          <!-- <button
+            type="button"
+            class="btn btn-primary"
+            (click)="openProdDetails(prd.id)"
+          >
+            details
+          </button> -->
+          <a
+            name=""
+            id=""
+            class="btn btn-primary"
+            [routerLink]="['/product', prd.id]"
+            role="button"
+            >detalis</a
+          >
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <hr />
+  <!-- <h3>order total price: {{ orderTotalPrice }}</h3> -->
+</div>

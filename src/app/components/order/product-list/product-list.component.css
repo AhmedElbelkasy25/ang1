@@ -1,0 +1,10 @@
+table {
+  text-align: center;
+  vertical-align: middle;
+}
+table th {
+  border: 1px black solid;
+}
+table td {
+  border: 1px black solid;
+}/*# sourceMappingURL=product-list.component.css.map */
